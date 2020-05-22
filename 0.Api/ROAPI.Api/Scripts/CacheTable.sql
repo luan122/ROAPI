@@ -1,4 +1,4 @@
-﻿CREATE TABLE IF NOT EXISTS `roapi.cache` ( 
+﻿CREATE TABLE IF NOT EXISTS `cache` ( 
 				`Id` varchar(449) CHARACTER SET ascii COLLATE ascii_bin NOT NULL, 
 				`AbsoluteExpiration` datetime(6) DEFAULT NULL, 
 				`ExpiresAtTime` datetime(6) NOT NULL, 
