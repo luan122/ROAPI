@@ -62,6 +62,7 @@ namespace ROAPI.Api.Controllers.Account
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesErrorResponseType(typeof(AccessTokenModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<ActionResult<AccessTokenModel>> Login(
             [FromBody] LoginModel user,
