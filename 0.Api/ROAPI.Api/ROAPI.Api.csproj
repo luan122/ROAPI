@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.6" />
+    <PackageReference Include="Pomelo.Extensions.Caching.MySql" Version="2.0.2" />
+    <PackageReference Include="Pomelo.Extensions.Caching.MySqlConfig.Tools" Version="2.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Character\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Application\ROAPI.Application.Account\ROAPI.Application.Account.csproj" />
+    <ProjectReference Include="..\..\1.Application\ROAPI.Application.Common\ROAPI.Application.Common.csproj" />
+    <ProjectReference Include="..\..\2.Domain\ROAPI.Domain.Account\ROAPI.Domain.Account.csproj" />
+    <ProjectReference Include="..\..\2.Domain\RPAPI.Domain.Common\RPAPI.Domain.Common.csproj" />
+    <ProjectReference Include="..\..\3.Infrastructure\Data\ROAPI.Data.Data\ROAPI.Data.Data.csproj" />
+  </ItemGroup>
+
+</Project>

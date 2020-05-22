@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\2.Domain\RPAPI.Domain.Common\RPAPI.Domain.Common.csproj" />
+    <ProjectReference Include="..\..\3.Infrastructure\Data\ROAPI.Data.Data\ROAPI.Data.Data.csproj" />
+  </ItemGroup>
+
+</Project>
