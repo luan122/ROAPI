@@ -56,6 +56,7 @@ namespace ROAPI.Api
             services.AddAccountDependencies();
             services.AddConfigurationDependencies();
             services.AddSystemDependencies();
+            services.AddGlobalExceptionHandlerMiddleware();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +74,7 @@ namespace ROAPI.Api
             app.AddSwaggerConfiguration();
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseGlobalExceptionHandlerMiddleware();
         }
     }
 }
