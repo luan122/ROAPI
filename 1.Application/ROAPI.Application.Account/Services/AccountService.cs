@@ -40,7 +40,10 @@ namespace ROAPI.Application.Account.Services
         {
             var result = await _accountRepository.GetAll().Where(a => a.userid == login).FirstOrDefaultAsync();
             if (groupId < 90)
+            {
                 result.user_pass = string.Empty;
+                result.pincode = string.Empty;
+            }
             return _mapper.Map<AccountDto>(result);
 
         }
