@@ -53,10 +53,14 @@ namespace ROAPI.Api
             services.AddSwaggerServices();
             services.AddConnectionDbService(Configuration);
             services.AddAutoMapper(typeof(Startup));
+            services.AddGlobalExceptionHandlerMiddleware();
+
+            //Dependencies
             services.AddAccountDependencies();
+            services.AddCharacterDependencies();
+
             services.AddConfigurationDependencies();
             services.AddSystemDependencies();
-            services.AddGlobalExceptionHandlerMiddleware();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

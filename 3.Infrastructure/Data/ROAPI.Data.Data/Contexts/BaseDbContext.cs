@@ -11,12 +11,5 @@ namespace ROAPI.Infrastructure.Data.Data.Contexts
         public BaseContext(DbContextOptions options)
         : base(options)
         { }
-
-        #region [Main Dbs]
-        public DbSet<AccountEntity> Login { get; set; }
-        #endregion
-
-        #region [Log Dbs]
-        #endregion
     }
 }
