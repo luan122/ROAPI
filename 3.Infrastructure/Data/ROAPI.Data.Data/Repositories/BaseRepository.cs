@@ -27,11 +27,11 @@ namespace ROAPI.Infrastructure.Data.Data.Repositories
             return obj;
         }
 
-        public virtual async Task<TEntity> GetById(long id)
+        public virtual async Task<TEntity> GetById(int id)
         {
-            return await DbSet.FindAsync(id);
+            var obj = await DbSet.FindAsync(id);
+            return obj;
         }
-
         public virtual IQueryable<TEntity> GetAll()
         {
             return DbSet;
@@ -43,7 +43,7 @@ namespace ROAPI.Infrastructure.Data.Data.Repositories
             return obj;
         }
 
-        public virtual void Remove(long id)
+        public virtual void Remove(int id)
         {
             DbSet.Remove(DbSet.Find(id));
         }

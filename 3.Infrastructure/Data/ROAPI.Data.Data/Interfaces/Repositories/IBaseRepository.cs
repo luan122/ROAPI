@@ -9,10 +9,10 @@ namespace ROAPI.Infrastructure.Data.Data.Interfaces.Repositories
     public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
     {
         Task<TEntity> Add(TEntity obj);
-        Task<TEntity> GetById(long id);
+        Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
         TEntity Update(TEntity obj);
-        void Remove(long id);
+        void Remove(int id);
         Task<int> SaveChanges();
     }
 }
