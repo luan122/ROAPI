@@ -13,9 +13,12 @@ namespace ROAPI.Api.Extensions
     {
         public static void AddConnectionDbService(this IServiceCollection services, IConfiguration configuration )
         {
-            services.AddDbContext<MainDbContext>(options =>
+            services.AddDbContext<MainDbContext>(options => {
                 options.UseMySql(
-                    configuration.GetConnectionString("MainConnection")));
+                    configuration.GetConnectionString("MainConnection"));
+                //options.EnableSensitiveDataLogging();
+                //options.EnableDetailedErrors();
+            });
             services.AddDbContext<LogDbContext>(options =>
                 options.UseMySql(
                     configuration.GetConnectionString("LogConnection")));

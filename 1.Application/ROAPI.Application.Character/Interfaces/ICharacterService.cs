@@ -13,5 +13,6 @@ namespace ROAPI.Application.Character.Interfaces
         Task<List<CharacterDto>> GetChars(int page = 1, int pageSize = 10);
         Task<List<CharacterDto>> GetChars();
         Task<CharacterDto> GetChar(int charId);
+        Task<CharacterDto> Updatecharacter(CharacterDto dto);
     }
 }

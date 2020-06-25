@@ -45,9 +45,9 @@ namespace ROAPI.Api.Controllers.Account
             _ragnarokConfigurations = configurationService.GetRagnarokConfigurations();
             _httpContextAccessor = httpContextAccessor;
         }
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesErrorResponseType(typeof(AccountModel))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK, type: typeof(AccountModel))]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound, type: typeof(Nullable))]
+        [ProducesResponseType(statusCode: StatusCodes.Status401Unauthorized, type: typeof(Nullable))]
         [HttpGet]
         public async Task<ActionResult<AccountModel>> Get()
         {
@@ -59,9 +59,8 @@ namespace ROAPI.Api.Controllers.Account
             return NotFound();
 
         }
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesErrorResponseType(typeof(AccessTokenModel))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK, type: typeof(AccessTokenModel))]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest, type: typeof(AccessTokenModel))]
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<ActionResult<AccessTokenModel>> Login(
@@ -115,6 +114,7 @@ namespace ROAPI.Api.Controllers.Account
                 
             }
         }
+
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [AllowAnonymous]
