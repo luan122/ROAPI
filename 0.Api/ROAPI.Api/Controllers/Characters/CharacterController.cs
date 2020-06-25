@@ -49,6 +49,11 @@ namespace ROAPI.Api.Controllers.Characters
         public async Task<ActionResult<CharacterModel>> GetByCharId([FromBody]int charId)
         {
             var character = await _characterService.GetChar(charId);
+            if (_identity.Claims.Where(s => s.Type.ToLower() == "roles").FirstOrDefault()?.Value != "99")
+            {
+                if (character.accountId != _accountId)
+                    return new StatusCodeResult(StatusCodes.Status401Unauthorized);
+            }
             if (character != null)
                 return Ok(_mapper.Map<CharacterModel>(character));
             else
