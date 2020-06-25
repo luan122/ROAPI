@@ -14,7 +14,7 @@ using ROAPI.Application.Character.Interfaces;
 
 namespace ROAPI.Api.Controllers.Characters
 {
-    //[Authorize("Bearer")]
+    [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class CharacterController : ControllerBase
