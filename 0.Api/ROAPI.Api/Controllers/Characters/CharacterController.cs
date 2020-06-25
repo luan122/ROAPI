@@ -21,9 +21,13 @@ namespace ROAPI.Api.Controllers.Characters
     {
         private readonly ICharacterService _characterService;
         private readonly IMapper _mapper;
+        private readonly ClaimsIdentity _identity;
+        private readonly int _accountId;
 
         public CharacterController(ICharacterService characterService, IMapper mapper)
         {
+            _identity = HttpContext.User.Identity as ClaimsIdentity;
+            int.TryParse(_identity.Claims.Where(s => s.Type.ToLower() == "accountid").FirstOrDefault()?.Value, out _accountId);
             _characterService = characterService;
             _mapper = mapper;
         }
@@ -55,14 +59,11 @@ namespace ROAPI.Api.Controllers.Characters
         [HttpGet("GetChars")]
         public async Task<ActionResult<List<CharacterModel>>> GetChars(bool paged = false, int page = 1, int pageSize = 10)
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            int accountId;
-            int.TryParse(identity.Claims.Where(s => s.Type.ToLower() == "accountid").FirstOrDefault()?.Value, out accountId);
-            if (accountId == 0)
+            if (_accountId == 0)
                 return NotFound();
             var characters = paged?
-                await _characterService.GetCharsByAccountId(accountId, page, pageSize) :
-                await _characterService.GetCharsByAccountId(accountId);
+                await _characterService.GetCharsByAccountId(_accountId, page, pageSize) :
+                await _characterService.GetCharsByAccountId(_accountId);
 
             return Ok(_mapper.Map<List<CharacterModel>>(characters));
         }
@@ -87,6 +88,11 @@ namespace ROAPI.Api.Controllers.Characters
         {
             
             var actualDto = await _characterService.GetChar(characterId);
+            if(_identity.Claims.Where(s => s.Type.ToLower() == "roles").FirstOrDefault()?.Value != "99")
+            {
+                if (actualDto.accountId != _accountId)
+                    return new StatusCodeResult(StatusCodes.Status401Unauthorized);
+            }
             if(actualDto == null && actualDto.charId != characterId)
                 return new StatusCodeResult(304);
             var actualModel = _mapper.Map<CharacterModel>(actualDto);
