@@ -66,7 +66,7 @@ namespace ROAPI.Application.Character.Dtos
         public int uniqueitemCounter { get; set; }
         public string sex { get; set; }
         public int hotkeyRowshift { get; set; }
-        public int clanId { get; set; }
+        public int? clanId { get; set; }
         public DateTime? lastLogin { get; set; }
         public int titleId { get; set; }
         public int showEquip { get; set; }

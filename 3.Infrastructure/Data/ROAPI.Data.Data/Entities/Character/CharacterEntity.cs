@@ -10,7 +10,7 @@ namespace ROAPI.Data.Data.Entities.Character
         [Key]
         public int char_id { get; set; }
         public int account_id { get; set; }
-        public bool char_num { get; set; }
+        public int char_num { get; set; }
         public string name { get; set; }
         public int @class { get; set; }
         public int base_level { get; set; }
@@ -31,14 +31,14 @@ namespace ROAPI.Data.Data.Entities.Character
         public int status_point { get; set; }
         public int skill_point { get; set; }
         public int option { get; set; }
-        public bool karma { get; set; }
+        public int karma { get; set; }
         public int manner { get; set; }
         public int party_id { get; set; }
         public int guild_id { get; set; }
         public int pet_id { get; set; }
         public int homun_id { get; set; }
         public int elemental_id { get; set; }
-        public bool hair { get; set; }
+        public int hair { get; set; }
         public int hair_color { get; set; }
         public int clothes_color { get; set; }
         public int body { get; set; }
@@ -55,7 +55,7 @@ namespace ROAPI.Data.Data.Entities.Character
         public int save_x { get; set; }
         public int save_y { get; set; }
         public int partner_id { get; set; }
-        public bool online { get; set; }
+        public int online { get; set; }
         public int father { get; set; }
         public int mother { get; set; }
         public int child { get; set; }
@@ -64,13 +64,13 @@ namespace ROAPI.Data.Data.Entities.Character
         public int delete_date { get; set; }
         public int moves { get; set; }
         public int unban_time { get; set; }
-        public bool font { get; set; }
+        public int font { get; set; }
         public int uniqueitem_counter { get; set; }
         public string sex { get; set; }
-        public bool hotkey_rowshift { get; set; }
-        public int clan_id { get; set; }
+        public int hotkey_rowshift { get; set; }
+        public int? clan_id { get; set; }
         public DateTime? last_login { get; set; }
         public int title_id { get; set; }
-        public bool show_equip { get; set; }
+        public int show_equip { get; set; }
     }
 }

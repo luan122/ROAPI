@@ -67,7 +67,7 @@ namespace ROAPI.Api.Models.Character
         public int UniqueitemCounter { get; set; }
         public string Sex { get; set; }
         public int HotkeyRowshift { get; set; }
-        public int ClanId { get; set; }
+        public int? ClanId { get; set; }
         public DateTime? LastLogin { get; set; }
         public int TitleId { get; set; }
         public int ShowEquip { get; set; }
