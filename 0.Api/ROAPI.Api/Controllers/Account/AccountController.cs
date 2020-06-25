@@ -139,6 +139,7 @@ namespace ROAPI.Api.Controllers.Account
                         new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
                         new Claim("user", login),
+                        new Claim("accountId", account.account_id.ToString()),
                         new Claim(ClaimTypes.Role, account.group_id.ToString())
                         }
                     );

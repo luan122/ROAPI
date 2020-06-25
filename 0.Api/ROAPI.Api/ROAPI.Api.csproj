@@ -21,11 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Character\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\1.Application\ROAPI.Application.Account\ROAPI.Application.Account.csproj" />
+    <ProjectReference Include="..\..\1.Application\ROAPI.Application.Character\ROAPI.Application.Character.csproj" />
     <ProjectReference Include="..\..\1.Application\ROAPI.Application.Common\ROAPI.Application.Common.csproj" />
     <ProjectReference Include="..\..\2.Domain\ROAPI.Domain.Account\ROAPI.Domain.Account.csproj" />
     <ProjectReference Include="..\..\2.Domain\RPAPI.Domain.Common\RPAPI.Domain.Common.csproj" />
